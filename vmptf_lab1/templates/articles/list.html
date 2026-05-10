@@ -1,0 +1,28 @@
+<h1>Articles</h1>
+
+<form method="GET">
+    <input type="text" name="q" value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+
+{% if page.has_previous %}
+  <a href="?q={{ query }}&page={{ page.previous_page_number }}">
+    Prev
+  </a>
+{% endif %}
+
+<span>{{ page.number }}</span>
+
+{% if page.has_next %}
+  <a href="?q={{ query }}&page={{ page.next_page_number }}">
+    Next
+</a>
+{% endif %}
+
+{% for article in page.object_list %}
+    <div>
+        <h2>{{ article.title }}</h2>
+        <p><b>Author:</b> {{ article.author }}</p>
+        <p>{{ article.text }}</p>
+    </div>
+{% endfor %}

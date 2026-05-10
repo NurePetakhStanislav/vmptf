@@ -1,5 +1,5 @@
 # Рівень 1: Запитайте користувача про його ім'я та виведіть привітання з використанням введеної назви.
-def OneToTen():
+def GetName():
     name = input("Введіть ваше ім'я: ")
     print(f"Вітаю вас, {name}!")
 
@@ -8,6 +8,11 @@ def ReverseString(text):
     result = ""
     for char in text:
         result = char + result
+
+    is_palindrom = result == text
+
+    if (is_palindrom):
+        result = "!" + result + "!"
     return result
 
 # Рівень 3: Створіть функцію, яка приймає список чисел та повертає новий список, який містить лише парні числа.
@@ -26,9 +31,9 @@ class Book:
         self.year = year
 
 def main():
-    OneToTen()
+    GetName()
 
-    text = "hello"
+    text = "lowol"
     print(f"{text}")
     print(f"{ReverseString(text)}")
 
