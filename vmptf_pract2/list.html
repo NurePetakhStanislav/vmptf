@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мій список</title>
+</head>
+<body>
+    <h1>Мої покупки</h1>
+    <ul id="list"></ul>
+    <script>
+        fetch('shopping.json')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('list');
+
+                data.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    list.appendChild(li);
+                });
+            })
+            .catch(e => {
+                console.log("Сталася помилка: " + e);
+            });
+</script>
+    <a href="json.html">Наступна сторінка</a>
+</body>
+</html>
